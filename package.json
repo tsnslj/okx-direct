@@ -1,0 +1,32 @@
+{
+  "name": "okx-direct",
+  "version": "0.1.0",
+  "description": "在中国大陆不挂代理直连 OKX OpenAPI：绕过 DNS 污染与 SNI 阻断的零依赖 Node 库",
+  "main": "src/index.js",
+  "bin": {
+    "okx-direct": "src/doctor.js"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "doctor": "node src/doctor.js",
+    "test": "node src/doctor.js --quick"
+  },
+  "keywords": [
+    "okx",
+    "okx-api",
+    "china",
+    "dns-pollution",
+    "sni",
+    "direct",
+    "no-proxy",
+    "crypto"
+  ],
+  "license": "MIT"
+}
