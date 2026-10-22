@@ -373,10 +373,15 @@ async function diagnose(opts = {}) {
     }
   }
 
-  out.ok = !!(out.api && out.api.ok);
+  // 结论：--quick 只测网络层，不能因为「没测 API」就判定失败
   const best = out.ips.find((x) => x.ok);
+  const quick = opts.deep === false;
+  out.ok = quick ? !!best : !!(out.api && out.api.ok);
+
   out.summary = out.ok
-    ? `直连可用：${best.ip}（握手 ${best.ms}ms），API 往返 ${out.api.ms}ms`
+    ? quick
+      ? `直连可用：${best.ip}（握手 ${best.ms}ms，未测 API）`
+      : `直连可用：${best.ip}（握手 ${best.ms}ms），API 往返 ${out.api.ms}ms`
     : '直连不可用，请查看 ips / api 字段定位问题';
 
   return out;

@@ -78,22 +78,18 @@ OKX 有一个备用域名 `okx.cab`，它和主站指向**同一批服务器**�
 
 ## 安装
 
+还没发布到 npm，现在直接从 GitHub 装：
+
 ```bash
-npm i okx-direct
+npm i github:tsnslj/okx-direct
 ```
 
-Node >= 18。零运行时依赖。
+Node >= 18，零运行时依赖。
 
-国内装包慢的话加镜像：
-
-```bash
-npm i okx-direct --registry=https://registry.npmmirror.com
-```
-
-想先不改代码、直接确认这套方案在你这里能不能用：
+想先不改代码、直接确认这套方案在你这里能不能用（会从 GitHub 拉下来跑一次体检）：
 
 ```bash
-npx okx-direct doctor
+npx github:tsnslj/okx-direct doctor
 ```
 
 ## 用法
@@ -144,6 +140,12 @@ const agent = await okx.createAgent();
 ```
 
 ### 体检
+
+```bash
+npx github:tsnslj/okx-direct doctor
+```
+
+装好之后也可以用短命令：
 
 ```bash
 npx okx-direct doctor
